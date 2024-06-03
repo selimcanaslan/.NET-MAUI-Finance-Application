@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyaFinance.AddNewIncome"
+             Title="Add New Income">
+    <StackLayout Padding="20" Spacing="20">
+        <Label Text="Add New Income" 
+               FontSize="Large" 
+               HorizontalOptions="Center" />
+
+        <Label Text="Title" />
+        <Entry x:Name="titleEntry" Placeholder="Enter title" />
+
+        <Label Text="Description" />
+        <Entry x:Name="descriptionEntry" Placeholder="Enter description" />
+
+        <Label Text="Amount" />
+        <Entry x:Name="amountEntry" Placeholder="Enter amount" Keyboard="Numeric" />
+
+        <Label Text="Date" />
+        <DatePicker x:Name="datePicker" />
+
+        <Button Text="Save" 
+                Clicked="SaveButton_Clicked" 
+                HorizontalOptions="FillAndExpand" />
+
+        <Button Text="Cancel" 
+                Clicked="CancelButton_Clicked" 
+                HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+</ContentPage>
