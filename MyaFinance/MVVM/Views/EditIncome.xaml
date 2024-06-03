@@ -4,21 +4,23 @@
              x:Class="MyaFinance.MVVM.Views.EditIncome"
              Title="EditIncome">
     <StackLayout Padding="10">
-        <Label Text="Edit Income" FontSize="Large" HorizontalOptions="Center" />
+        <Label Text="GELİR DÜZENLE" FontSize="Large" HorizontalOptions="Center" 
+               FontAttributes="Bold"
+               Margin="10,10,10,20"/>
 
-        <Label Text="Title" />
-        <Entry x:Name="titleEntry" Placeholder="Title" />
+        <Label Text="Başlık" />
+        <Entry x:Name="titleEntry" Placeholder="Başlık" />
 
-        <Label Text="Description" />
-        <Entry x:Name="descriptionEntry" Placeholder="Description" />
+        <Label Text="Açıklama" />
+        <Entry x:Name="descriptionEntry" Placeholder="Açıklama" />
 
-        <Label Text="Amount" />
-        <Entry x:Name="amountEntry" Placeholder="Amount" Keyboard="Numeric" />
+        <Label Text="Miktar" />
+        <Entry x:Name="amountEntry" Placeholder="Miktar" Keyboard="Numeric" />
 
-        <Label Text="Date" />
+        <Label Text="Tarih" />
         <DatePicker x:Name="datePicker" />
 
-        <Button Text="Save" Clicked="SaveButton_Clicked" Margin="0,10,0,0" HorizontalOptions="FillAndExpand"/>
-        <Button Text="Cancel" Clicked="CancelButton_Clicked" Margin="0,10,0,0" HorizontalOptions="FillAndExpand"/>
+        <Button Text="GÜNCELLE" Clicked="SaveButton_Clicked" Margin="0,10,0,0" HorizontalOptions="FillAndExpand"/>
+        <Button Text="İPTAL" Clicked="CancelButton_Clicked" Margin="0,10,0,0" HorizontalOptions="FillAndExpand"/>
     </StackLayout>
 </ContentPage>

@@ -4,27 +4,27 @@
              x:Class="MyaFinance.AddNewIncome"
              Title="Add New Income">
     <StackLayout Padding="20" Spacing="20">
-        <Label Text="Add New Income" 
+        <Label Text="YENİ GELİR KAYDI" 
                FontSize="Large" 
                HorizontalOptions="Center" />
 
-        <Label Text="Title" />
-        <Entry x:Name="titleEntry" Placeholder="Enter title" />
+        <Label Text="Başlık" />
+        <Entry x:Name="titleEntry" Placeholder="Başlık Gir" />
 
-        <Label Text="Description" />
-        <Entry x:Name="descriptionEntry" Placeholder="Enter description" />
+        <Label Text="Açıklama" />
+        <Entry x:Name="descriptionEntry" Placeholder="Açıklama Gir" />
 
-        <Label Text="Amount" />
-        <Entry x:Name="amountEntry" Placeholder="Enter amount" Keyboard="Numeric" />
+        <Label Text="Miktar" />
+        <Entry x:Name="amountEntry" Placeholder="Miktar Gir" Keyboard="Numeric" />
 
-        <Label Text="Date" />
+        <Label Text="Tarih" />
         <DatePicker x:Name="datePicker" />
 
-        <Button Text="Save" 
+        <Button Text="KAYDET" 
                 Clicked="SaveButton_Clicked" 
                 HorizontalOptions="FillAndExpand" />
 
-        <Button Text="Cancel" 
+        <Button Text="İPTAL" 
                 Clicked="CancelButton_Clicked" 
                 HorizontalOptions="FillAndExpand" />
     </StackLayout>

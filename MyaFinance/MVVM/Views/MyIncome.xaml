@@ -5,21 +5,48 @@
              Title="MyIncome">
     <StackLayout>
         <!-- Go Back Button -->
-        <Button Text="Go Back"
+        
+        <Button Text="Geri Dön"
                 Clicked="GoBack"
-                Margin="20,10,20,0"
-                HorizontalOptions="FillAndExpand"/>
-
-        <!-- Add New Income Button -->
-        <Button Text="Add New Income"
-                Clicked="AddNewIncomeButton_Clicked"
-                Margin="20,5,20,0"
-                HorizontalOptions="FillAndExpand"/>
+                Margin="0,0,0,0"
+                FontAttributes="Bold"
+                HorizontalOptions="FillAndExpand"
+                CornerRadius="0"
+                ImageSource="back.png"/>
 
         <Label 
-            Text="Gelirlerim"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+                Text="Gelirlerim"
+                VerticalOptions="Center" 
+                HorizontalOptions="FillAndExpand" 
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                FontAttributes="Bold" 
+                FontSize="Large" 
+                Padding="10"/>
+
+
+
+        <!-- Add New Income Button -->
+        <Button Text="Yeni Gelir Ekle"
+                Clicked="AddNewIncomeButton_Clicked"
+                Margin="10,0,10,5"
+                HorizontalOptions="FillAndExpand"
+                FontAttributes="Bold"
+                ImageSource="add.png"/>
+
+        <Label 
+                x:Name="noIncomeLabel"
+                Text="Kayıtlı geliriniz bulunmamaktadır."
+                VerticalOptions="Center" 
+                HorizontalOptions="FillAndExpand" 
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Margin="10,0,10,30"
+                FontSize="Medium" 
+                FontAttributes="Bold"
+                Padding="10"
+                IsVisible="False"/>
+
 
         <!-- ListView to display incomes -->
         <ListView x:Name="incomeListView"
@@ -29,16 +56,17 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10" Spacing="10" >
+                            <BoxView 
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="2"
+                            BackgroundColor="Black"/>
                             <!-- Display title and amount -->
-                            <Label Text="{Binding Title}" FontSize="Medium" HorizontalOptions="Center"/>
-                            <Label Text="{Binding Amount, StringFormat='{0} ₺'}" FontSize="Medium" HorizontalOptions="Center"/>
-
+                            <Label Text="{Binding Title}" BackgroundColor="Aquamarine"  FontSize="Title" FontAttributes="Bold" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding Amount, StringFormat='Miktar : {0} ₺'}" BackgroundColor="Bisque"  FontSize="Subtitle" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding Date, StringFormat='{0:dd MMM yyyy}'}" BackgroundColor="DarkSalmon"  FontSize="Subtitle" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
                             <!-- Buttons for actions -->
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
-                                <Button Text="Edit" Clicked="EditButton_Clicked" CommandParameter="{Binding Id}"/>
-                                <Button Text="Delete" Clicked="DeleteButton_Clicked" CommandParameter="{Binding Id}" />
-                                <Button Text="Details" Clicked="DetailsButton_Clicked" CommandParameter="{Binding Id}" />
-                            </StackLayout>
+                            <Button Text="Düzenle" FontAttributes="Bold" ImageSource="edit.png" Clicked="EditButton_Clicked" CommandParameter="{Binding Id}"/>
+                            <Button Text="Sil" FontAttributes="Bold" ImageSource="delete.png" BackgroundColor="Red" Clicked="DeleteButton_Clicked" CommandParameter="{Binding Id}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

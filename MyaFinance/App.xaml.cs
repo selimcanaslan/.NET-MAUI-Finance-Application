@@ -1,4 +1,5 @@
 ﻿using MyaFinance.Repositories;
+using System.Globalization;
 
 namespace MyaFinance
 {
@@ -8,7 +9,8 @@ namespace MyaFinance
         public App(UserRepository repo)
         {
             InitializeComponent();
-
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("tr-TR");
             userRepo = repo;
 
             MainPage = new Login();

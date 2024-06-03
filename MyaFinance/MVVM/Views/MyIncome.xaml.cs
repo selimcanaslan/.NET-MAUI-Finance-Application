@@ -23,6 +23,14 @@ public partial class MyIncome : ContentPage
     {
         List<Income> incomes = _incomeRepository.GetAll(_userId);
         incomeListView.ItemsSource = incomes;
+        if (incomes == null || incomes.Count < 1)
+        {
+            noIncomeLabel.IsVisible = true;
+        }
+        else
+        {
+            noIncomeLabel.IsVisible = false;
+        }
     }
 
     private void GoBack(object sender, EventArgs e)
@@ -59,20 +67,21 @@ public partial class MyIncome : ContentPage
         var button = (Button)sender;
         var incomeId = (int)button.CommandParameter;
         _incomeRepository.Delete(incomeId);
+        DisplayAlert("Success", "Record Deleted Succesfully", "OK");
         LoadIncomes();
-    }
-
-    private void DetailsButton_Clicked(object sender, EventArgs e)
-    {
-        var button = (Button)sender;
-        var incomeId = (int)button.CommandParameter;
-        // Handle details logic here
-        // For example, navigate to a details page with the incomeId
     }
 
     private void RefreshIncomeList()
     {
         var incomes = _incomeRepository.GetAll(_userId);
         incomeListView.ItemsSource = incomes;
+        if (incomes == null || incomes.Count < 1)
+        {
+            noIncomeLabel.IsVisible = true;
+        }
+        else
+        {
+            noIncomeLabel.IsVisible = false;
+        }
     }
 }

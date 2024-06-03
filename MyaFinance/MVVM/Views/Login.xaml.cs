@@ -11,6 +11,8 @@ public partial class Login : ContentPage
     {
         InitializeComponent();
         BindingContext = new LoginViewModel();
+        emailEntry.Text = "selimcanaslan33@gmail.com";
+        passwordEntry.Text = "seloselo1";
     }
     private void OnLoginButtonClicked(object sender, EventArgs e)
     {
