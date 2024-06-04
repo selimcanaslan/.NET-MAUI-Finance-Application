@@ -50,7 +50,9 @@
 
         <!-- ListView to display incomes -->
         <ListView x:Name="incomeListView"
-                  HasUnevenRows="true">
+                  HasUnevenRows="true"
+                  SelectionMode="None">
+
             <!-- Set HasUnevenRows to true -->
             <ListView.ItemTemplate>
                 <DataTemplate>

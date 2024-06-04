@@ -4,11 +4,15 @@
              x:Class="MyaFinance.Login"
              Title="Login">
     <StackLayout Padding="30" Spacing="10" VerticalOptions="Center">
-        <Label Text="Login" FontSize="Large" HorizontalOptions="Center" />
+        <Image
+            Source="main.png"
+            WidthRequest="100"
+            HeightRequest="100"/>
+        <Label Text="Giriş Yap" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold" />
         <Entry x:Name="emailEntry" Placeholder="Email" />
         <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" />
-        <Button Text="Login" Clicked="OnLoginButtonClicked" />
+        <Button Text="GİRİŞ" Clicked="OnLoginButtonClicked" />
         <Label x:Name="messageLabel" TextColor="Red" IsVisible="False" />
-        <Button Text="Register" Clicked="RegisterButtonClicked" />
+        <Button Text="KAYIT OL" Clicked="RegisterButtonClicked" />
     </StackLayout>
 </ContentPage>

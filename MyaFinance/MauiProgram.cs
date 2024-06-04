@@ -17,6 +17,7 @@ namespace MyaFinance
                 });
             builder.Services.AddSingleton<UserRepository>();
             builder.Services.AddSingleton<IncomeRepository>();
+            builder.Services.AddSingleton<ExpenseRepository>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

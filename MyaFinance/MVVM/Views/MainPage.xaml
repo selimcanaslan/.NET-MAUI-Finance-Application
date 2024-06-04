@@ -1,40 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="MyaFinance.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="40,0"
-            Spacing="25">
-            <Image
-                Source="main.png"
-                Aspect="AspectFit" />
+    <Grid>
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout
+                Padding="40,0"
+                Spacing="25">
+                <Image
+                    Source="main.png"
+                    WidthRequest="100"
+                    HeightRequest="100"/>
 
-            <Label
-                x:Name="helloLabel"
-                Text="Hello, World!"
-                Style="{StaticResource Headline}"
-                 FontSize="24"
-                SemanticProperties.HeadingLevel="Level1" />
+                <Label
+                    x:Name="helloLabel"
+                    Text="Hello, World!"
+                    Style="{StaticResource Headline}"
+                    FontSize="24"
+                    SemanticProperties.HeadingLevel="Level1" />
 
-            <!--<Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />-->
+                <Button
+                    x:Name="IncomeBtn"
+                    Text="Gelirlerim"
+                    Clicked="IncomeClicked"
+                    HorizontalOptions="Fill" />
+                <Button
+                    x:Name="ExpenseBtn"
+                    Text="Giderlerim"
+                    Clicked="ExpenseClicked"
+                    HorizontalOptions="Fill" />
+            </VerticalStackLayout>
+        </ScrollView>
+        <StackLayout Grid.Row="1" VerticalOptions="Center" Spacing="10" Padding="30,0">
 
+        </StackLayout>
+                     
+        <StackLayout Grid.Row="2" VerticalOptions="EndAndExpand" Spacing="3" Padding="30,50">
+            <Frame  
+                BackgroundColor="Green"
+                CornerRadius="10"
+                Padding="10"
+                HorizontalOptions="Fill"
+                VerticalOptions="End">
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Image
+                        Source="euro.png"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="euroCurrencyLabel"
+                        Text=""
+                        FontSize="16"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        HorizontalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame  
+                BackgroundColor="Green"
+                CornerRadius="10"
+                Padding="10"
+                HorizontalOptions="Fill"
+>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Image
+                        Source="dollar.png"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        VerticalOptions="Center" />
+                    <Label
+                        x:Name="dollarCurrencyLabel"
+                        Text=""
+                        FontSize="16"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        HorizontalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+            </Frame>
+
+        </StackLayout>
+        <StackLayout Grid.Row="3" VerticalOptions="EndAndExpand" Spacing="10">
             <Button
-                x:Name="IncomeBtn"
-                Text="Gelirlerim" 
-                Clicked="IncomeClicked"
-                HorizontalOptions="Fill" />
-            <Button
-                x:Name="ExpenseBtn"
-                Text="Giderlerim"
-                Clicked="ExpenseClicked"
-                HorizontalOptions="Fill" />
-        </VerticalStackLayout>
-    </ScrollView>
-
+                x:Name="LogoutBtn"
+                Text="Çıkış"
+                Clicked="Logout"
+                CornerRadius="0"
+                HorizontalOptions="Fill"
+                />
+        </StackLayout>
+    </Grid>
 </ContentPage>

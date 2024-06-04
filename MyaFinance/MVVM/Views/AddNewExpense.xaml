@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyaFinance.MVVM.Views.AddNewExpense"
+             Title="AddNewExpense">
+    <StackLayout Padding="20" Spacing="20">
+        <Label Text="YENİ GİDER KAYDI" 
+               FontSize="Large" 
+               HorizontalOptions="Center" />
+
+        <Label Text="Başlık" />
+        <Entry x:Name="titleEntry" Placeholder="Başlık Gir" />
+
+        <Label Text="Açıklama" />
+        <Entry x:Name="descriptionEntry" Placeholder="Açıklama Gir" />
+
+        <Label Text="Miktar" />
+        <Entry x:Name="amountEntry" Placeholder="Miktar Gir" Keyboard="Numeric" />
+
+        <Label Text="Tarih" />
+        <DatePicker x:Name="datePicker" />
+
+        <Button Text="KAYDET" 
+                Clicked="SaveButton_Clicked" 
+                HorizontalOptions="FillAndExpand" />
+
+        <Button Text="İPTAL" 
+                Clicked="CancelButton_Clicked" 
+                HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+</ContentPage>

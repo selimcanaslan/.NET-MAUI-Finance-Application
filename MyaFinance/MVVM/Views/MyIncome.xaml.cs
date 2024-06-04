@@ -84,4 +84,9 @@ public partial class MyIncome : ContentPage
             noIncomeLabel.IsVisible = false;
         }
     }
+
+    private void incomeListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+
+    }
 }
