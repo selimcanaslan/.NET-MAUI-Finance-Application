@@ -45,19 +45,6 @@ namespace MyaFinance.Repositories
             return null;
         }
 
-        public List<User> GetAll2()
-        {
-            try
-            {
-                return connection.Query<User>("SELECT * FROM Users").ToList();
-            }
-            catch (Exception ex)
-            {
-                StatusMessage = $"Error : {ex.Message}";
-            }
-            return null;
-        }
-
         public User Get(string mail)
         {
             try

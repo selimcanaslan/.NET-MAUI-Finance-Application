@@ -14,16 +14,24 @@
                 CornerRadius="0"
                 ImageSource="back.png"/>
 
-        <Label 
+        <Frame  
+            BackgroundColor="Green"
+            CornerRadius="10"
+            Padding="0"
+            Margin="10,10,10,5"
+            HorizontalOptions="Fill"
+            VerticalOptions="End">
+            <Label 
                 Text="Gelirlerim"
                 VerticalOptions="Center" 
                 HorizontalOptions="FillAndExpand" 
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
                 FontAttributes="Bold" 
+                TextColor="White"
                 FontSize="Large" 
                 Padding="10"/>
-
+        </Frame>
 
 
         <!-- Add New Income Button -->
@@ -65,7 +73,7 @@
                             <!-- Display title and amount -->
                             <Label Text="{Binding Title}" BackgroundColor="Aquamarine"  FontSize="Title" FontAttributes="Bold" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
                             <Label Text="{Binding Amount, StringFormat='Miktar : {0} ₺'}" BackgroundColor="Bisque"  FontSize="Subtitle" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
-                            <Label Text="{Binding Date, StringFormat='{0:dd MMM yyyy}'}" BackgroundColor="DarkSalmon"  FontSize="Subtitle" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding Date, StringFormat='{0:dd MMM yyyy HH:mm}'}" BackgroundColor="DarkSalmon"  FontSize="Subtitle" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
                             <!-- Buttons for actions -->
                             <Button Text="Düzenle" FontAttributes="Bold" ImageSource="edit.png" Clicked="EditButton_Clicked" CommandParameter="{Binding Id}"/>
                             <Button Text="Sil" FontAttributes="Bold" ImageSource="delete.png" BackgroundColor="Red" Clicked="DeleteButton_Clicked" CommandParameter="{Binding Id}" />

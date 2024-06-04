@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="MyaFinance.MainPage">
 
     <Grid>
         <ScrollView Grid.Row="0">
             <VerticalStackLayout
                 Padding="40,0"
-                Spacing="25">
+                Spacing="5">
                 <Image
                     Source="main.png"
                     WidthRequest="100"
@@ -24,17 +23,85 @@
                 <Button
                     x:Name="IncomeBtn"
                     Text="Gelirlerim"
+                    ImageSource="income.png"
                     Clicked="IncomeClicked"
                     HorizontalOptions="Fill" />
                 <Button
                     x:Name="ExpenseBtn"
                     Text="Giderlerim"
+                    ImageSource="expense.png"
                     Clicked="ExpenseClicked"
                     HorizontalOptions="Fill" />
             </VerticalStackLayout>
         </ScrollView>
-        <StackLayout Grid.Row="1" VerticalOptions="Center" Spacing="10" Padding="30,0">
+        <StackLayout Grid.Row="1" VerticalOptions="Center"  Spacing="1" Padding="30,0">
 
+            <Label
+                Text="Son Gider Kayıtları"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalOptions="Center"></Label>
+
+            <Frame  
+                x:Name="sonIslemFrame"
+                BackgroundColor="Green"
+                CornerRadius="10"
+                Padding="10"
+                HorizontalOptions="Fill">
+                <Label
+                    x:Name="sonIslemLabel"
+                    Text="Son İşlemler"
+                    FontSize="16"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"/>
+            </Frame>
+            <Frame  
+                x:Name="sondanBirinciIslemFrame"
+                BackgroundColor="Green"
+                CornerRadius="10"
+                Padding="10"
+                HorizontalOptions="Fill">
+                <Label
+                    x:Name="sondanBirinciIslemLabel"
+                    Text="Son İşlemler"
+                    FontSize="16"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"/>
+            </Frame>
+                <Label
+                    Text="Son Gelir Kayıtları"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    HorizontalOptions="Center"></Label>
+            <Frame  
+                x:Name="sondanIkinciIslemFrame"
+                BackgroundColor="Green"
+                CornerRadius="10"
+                Padding="10"
+                HorizontalOptions="Fill">
+                <Label
+                    x:Name="sondanIkinciIslemLabel"
+                    Text="Son İşlemler"
+                    FontSize="16"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"/>
+            </Frame>
+            <Frame  
+                x:Name="sondanUcuncuIslemFrame"
+                BackgroundColor="Green"
+                CornerRadius="10"
+                Padding="10"
+                HorizontalOptions="Fill">
+                <Label
+                    x:Name="sondanUcuncuIslemLabel"
+                    Text="Son İşlemler"
+                    FontSize="16"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"/>
+            </Frame>
         </StackLayout>
                      
         <StackLayout Grid.Row="2" VerticalOptions="EndAndExpand" Spacing="3" Padding="30,50">
@@ -63,8 +130,7 @@
                 BackgroundColor="Green"
                 CornerRadius="10"
                 Padding="10"
-                HorizontalOptions="Fill"
->
+                HorizontalOptions="Fill">
                 <HorizontalStackLayout HorizontalOptions="Center">
                     <Image
                         Source="dollar.png"
@@ -80,16 +146,15 @@
                         HorizontalTextAlignment="Center"/>
                 </HorizontalStackLayout>
             </Frame>
-
-        </StackLayout>
-        <StackLayout Grid.Row="3" VerticalOptions="EndAndExpand" Spacing="10">
             <Button
                 x:Name="LogoutBtn"
-                Text="Çıkış"
+                Text="ÇIKIŞ"
                 Clicked="Logout"
-                CornerRadius="0"
+                FontSize="16"
+                BackgroundColor="Red"
                 HorizontalOptions="Fill"
                 />
         </StackLayout>
+
     </Grid>
 </ContentPage>

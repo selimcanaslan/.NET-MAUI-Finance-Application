@@ -24,6 +24,9 @@ namespace MyaFinance
             var description = descriptionEntry.Text;
             var amount = double.Parse(amountEntry.Text);
             var date = datePicker.Date;
+            var currentTime = DateTime.Now.TimeOfDay;
+            date = new DateTime(date.Year, date.Month, date.Day, currentTime.Hours, currentTime.Minutes, currentTime.Seconds);
+
 
             var newIncome = new Income
             {
@@ -37,6 +40,15 @@ namespace MyaFinance
             _incomeRepository.Add(newIncome);
             _refreshCallback?.Invoke();
             Navigation.PopModalAsync();
+            UnfocusAll();
+        }
+
+        private void UnfocusAll()
+        {
+            titleEntry.Unfocus();
+            descriptionEntry.Unfocus();
+            amountEntry.Unfocus();
+            datePicker.Unfocus();
         }
 
         private void CancelButton_Clicked(object sender, EventArgs e)

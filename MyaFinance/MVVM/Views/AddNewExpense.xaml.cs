@@ -23,6 +23,8 @@ public partial class AddNewExpense : ContentPage
         var description = descriptionEntry.Text;
         var amount = double.Parse(amountEntry.Text);
         var date = datePicker.Date;
+        var currentTime = DateTime.Now.TimeOfDay;
+        date = new DateTime(date.Year, date.Month, date.Day, currentTime.Hours, currentTime.Minutes, currentTime.Seconds);
 
         var newExpense = new Expense
         {
@@ -36,6 +38,15 @@ public partial class AddNewExpense : ContentPage
         _expenseRepository.Add(newExpense);
         _refreshCallback?.Invoke();
         Navigation.PopModalAsync();
+        UnfocusAll();
+    }
+
+    private void UnfocusAll()
+    {
+        titleEntry.Unfocus();
+        descriptionEntry.Unfocus();
+        amountEntry.Unfocus();
+        datePicker.Unfocus();
     }
 
     private void CancelButton_Clicked(object sender, EventArgs e)

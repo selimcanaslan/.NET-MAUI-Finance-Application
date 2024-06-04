@@ -71,6 +71,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="MVVM\Views\AddNewExpense.xaml.cs">
+	    <DependentUpon>AddNewExpense.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="MVVM\Views\MyIncome.xaml.cs">
 	    <DependentUpon>MyIncome.xaml</DependentUpon>
 	  </Compile>

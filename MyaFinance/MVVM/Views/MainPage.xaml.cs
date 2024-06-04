@@ -5,11 +5,14 @@ using System.Threading.Tasks;
 using MyaFinance.MVVM.Views;
 using MyaFinance.MVVM.Models;
 using Newtonsoft.Json.Linq;
+using MyaFinance.Repositories;
 
 namespace MyaFinance
 {
     public partial class MainPage : ContentPage
     {
+        private IncomeRepository _incomeRepository;
+        private ExpenseRepository _expenseRepository;
         private HttpClient _client = new HttpClient();
         private const string BaseUrl = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/";
 
@@ -17,12 +20,103 @@ namespace MyaFinance
 
         public MainPage(User user)
         {
+            _expenseRepository = new ExpenseRepository();
+            _incomeRepository = new IncomeRepository();
             InitializeComponent();
             currentUser = user;
             helloLabel.Text = $"Merhaba, {user.Name}";
             LoadCurrencyData();
+            LoadLastTransacitons();
         }
+        private void LoadLastTransacitons()
+        {
+            LoadLatestExpenses();
+            LoadLatestIncomes();
+        }
+        private void LoadLatestIncomes()
+        {
+            List<Income> incomes = _incomeRepository.GetAll(currentUser.Id);
 
+            int incomesListItemCount = incomes.Count;
+            int i = 0;
+            if (incomesListItemCount < 1 || incomes == null)
+            {
+                sondanIkinciIslemLabel.Text = "Henüz Gelir Girmediniz";
+                sondanIkinciIslemLabel.BackgroundColor = Colors.Gray;
+                sondanIkinciIslemFrame.BackgroundColor = Colors.Gray;
+                sondanUcuncuIslemFrame.IsVisible = false;
+                sondanUcuncuIslemLabel.IsVisible = false;
+            }
+            else
+            {
+                foreach (Income income in incomes)
+                {
+                    if (incomesListItemCount == 1)
+                    {
+                        sondanIkinciIslemLabel.Text = $"{income.Title} - {income.Amount}TL - {income.Date.ToString("dd MMM HH:mm")}";
+                        sondanIkinciIslemLabel.BackgroundColor = Colors.Green;
+                        sondanIkinciIslemFrame.BackgroundColor = Colors.Green;
+
+                        sondanUcuncuIslemFrame.IsVisible = false;
+                        sondanUcuncuIslemLabel.IsVisible = false;
+                    }
+                    else if (incomesListItemCount > 1)
+                    {
+                        if (i == 0)
+                        {
+                            sondanIkinciIslemLabel.Text = $"{income.Title} - {income.Amount}TL - {income.Date.ToString("dd MMM HH:mm")}";
+                        }
+                        if (i == 1)
+                        {
+                            sondanUcuncuIslemLabel.Text = $"{income.Title} - {income.Amount}TL - {income.Date.ToString("dd MMM HH:mm")}";
+                        }
+                    }
+                    i++;
+                }
+            }
+        }
+        private void LoadLatestExpenses()
+        {
+            List<Expense> expenses = _expenseRepository.GetAll(currentUser.Id);
+
+            int expenseListItemCount = expenses.Count;
+            int i = 0;
+            if (expenseListItemCount < 1 || expenses == null)
+            {
+                sonIslemLabel.Text = "Henüz Gider Girmediniz";
+                sonIslemFrame.BackgroundColor = Colors.Gray;
+                sonIslemFrame.BackgroundColor = Colors.Gray;
+                sondanBirinciIslemFrame.IsVisible = false;
+                sondanBirinciIslemLabel.IsVisible = false;
+            }
+            else
+            {
+                foreach (Expense expense in expenses)
+                {
+                    if (expenseListItemCount == 1)
+                    {
+                        sonIslemLabel.Text = $"{expense.Title} - {expense.Amount}TL - {expense.Date.ToString("dd MMM HH:mm")}";
+                        sonIslemLabel.BackgroundColor = Colors.Green;
+                        sonIslemFrame.BackgroundColor = Colors.Green;
+
+                        sondanBirinciIslemFrame.IsVisible = false;
+                        sondanBirinciIslemLabel.IsVisible = false;
+                    }
+                    else if (expenseListItemCount > 1)
+                    {
+                        if (i == 0)
+                        {
+                            sonIslemLabel.Text = $"{expense.Title} - {expense.Amount}TL - {expense.Date.ToString("dd MMM HH:mm")}";
+                        }
+                        if (i == 1)
+                        {
+                            sondanBirinciIslemLabel.Text = $"{expense.Title} - {expense.Amount}TL - {expense.Date.ToString("dd MMM HH:mm")}";
+                        }
+                    }
+                    i++;
+                }
+            }
+        }
         private async void LoadCurrencyData()
         {
             try
@@ -84,7 +178,7 @@ namespace MyaFinance
             // Sadece Euro bazında döviz kurlarını al
             double euroRate = currencyRates["try"];
             double usdRate = currencyRates["usd"];
-            double usdToTry = euroRate  - ((euroRate * usdRate) - euroRate);
+            double usdToTry = euroRate - ((euroRate * usdRate) - euroRate);
             dollarCurrencyLabel.Text = " " + usdToTry.ToString("F6") + " TL";
             return $" {euroRate:F6} TL";
         }
@@ -129,7 +223,16 @@ namespace MyaFinance
                 throw new Exception($"Fallback Error fetching Euro-based currencies: {ex.Message}");
             }
         }
+        private void RefreshTransactions()
+        {
+            LoadLastTransacitons();
+        }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            RefreshTransactions();
+        }
         private void IncomeClicked(object sender, EventArgs e)
         {
             MyIncome myIncome = new MyIncome(currentUser.Id);

@@ -41,6 +41,8 @@ public partial class UserRegisterPage : ContentPage
         if (result == 1)
         {
             DisplayAlert("Register Success", "User registered successfully!", "OK");
+            Login login = new Login();
+            Application.Current.MainPage.Navigation.PushModalAsync(login);
         }
         else
         {

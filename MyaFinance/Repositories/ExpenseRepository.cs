@@ -39,7 +39,10 @@ namespace MyaFinance.Repositories
         {
             try
             {
-                return connection.Table<Expense>().Where(x => x.UserId == userId).ToList();
+                return connection.Table<Expense>()
+                    .Where(x => x.UserId == userId)
+                    .OrderByDescending(x => x.Date)
+                    .ToList();
             }
             catch (Exception ex)
             {

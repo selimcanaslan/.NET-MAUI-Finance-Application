@@ -15,10 +15,10 @@ public partial class MyExpense : ContentPage
         _userId = id;
         _expenseRepository = new ExpenseRepository();
         InitializeComponent();
-        LoadIncomes();
+        LoadExpenses();
     }
 
-    private void LoadIncomes()
+    private void LoadExpenses()
     {
         List<Expense> expenses = _expenseRepository.GetAll(_userId);
         expenseListView.ItemsSource = expenses;
@@ -67,7 +67,7 @@ public partial class MyExpense : ContentPage
         var expenseId = (int)button.CommandParameter;
         _expenseRepository.Delete(expenseId);
         DisplayAlert("Success", "Record Deleted Succesfully", "OK");
-        LoadIncomes();
+        LoadExpenses();
     }
 
     private void RefreshIncomeList()

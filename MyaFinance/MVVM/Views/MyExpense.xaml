@@ -14,16 +14,24 @@
                 CornerRadius="0"
                 ImageSource="back.png"/>
 
-        <Label 
+        <Frame  
+            BackgroundColor="Red"
+            CornerRadius="10"
+            Padding="0"
+            Margin="10,10,10,5"
+            HorizontalOptions="Fill"
+            VerticalOptions="End">
+            <Label 
                 Text="Giderlerim"
                 VerticalOptions="Center" 
                 HorizontalOptions="FillAndExpand" 
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
                 FontAttributes="Bold" 
+                TextColor="White"
                 FontSize="Large" 
                 Padding="10"/>
-
+        </Frame>
 
 
         <!-- Add New Income Button -->
