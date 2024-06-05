@@ -105,4 +105,8 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="MVVM\ViewModels\" />
+	</ItemGroup>
 </Project>

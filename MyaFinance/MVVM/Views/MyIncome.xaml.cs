@@ -48,12 +48,10 @@ public partial class MyIncome : ContentPage
         var button = (Button)sender;
         var incomeId = (int)button.CommandParameter;
 
-        // Fetch the income details using the incomeId
         var income = _incomeRepository.Get(incomeId);
 
         if (income != null)
         {
-            // Navigate to the EditIncome page with the income details
             Navigation.PushModalAsync(new EditIncome(income, RefreshIncomeList));
         }
         else

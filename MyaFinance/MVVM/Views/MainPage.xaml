@@ -34,7 +34,7 @@
                     HorizontalOptions="Fill" />
             </VerticalStackLayout>
         </ScrollView>
-        <StackLayout Grid.Row="1" VerticalOptions="Center"  Spacing="1" Padding="30,0">
+        <StackLayout Grid.Row="1" VerticalOptions="Center"  Spacing="1" Padding="30,0" Margin="0,30,0,0">
 
             <Label
                 Text="Son Gider Kayıtları"

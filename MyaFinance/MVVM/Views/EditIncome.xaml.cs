@@ -15,7 +15,6 @@ public partial class EditIncome : ContentPage
         _incomeRepository = new IncomeRepository();
         _refreshCallback = refreshCallback;
 
-        // Initialize the fields with the current income data
         titleEntry.Text = _income.Title;
         descriptionEntry.Text = _income.Description;
         amountEntry.Text = _income.Amount.ToString();

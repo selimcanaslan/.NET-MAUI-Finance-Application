@@ -1,4 +1,4 @@
-using MyaFinance.MVVM.ViewModels;
+
 using MyaFinance.MVVM.Views;
 using MyaFinance.Repositories;
 using MyaFinance.MVVM.Models;
@@ -10,7 +10,6 @@ public partial class Login : ContentPage
     public Login()
     {
         InitializeComponent();
-        BindingContext = new LoginViewModel();
         emailEntry.Text = "selimcanaslan33@gmail.com";
         passwordEntry.Text = "seloselo1";
     }
@@ -19,27 +18,20 @@ public partial class Login : ContentPage
         string userMail = emailEntry.Text;
         string password = passwordEntry.Text;
 
-        // Create an instance of the UserRepository
         UserRepository userRepository = new UserRepository();
 
-        // Get the user from the database based on the entered username
         User user = userRepository.Get(userMail);
         
-        // Check if the user exists and the password matches
         if (user != null && user.Password == password)
         {
-            // Hide any error message
             messageLabel.IsVisible = false;
 
-            // Display a success message
 
-            // Navigate to the main page
             MainPage mainPage = new MainPage(user);
             Application.Current.MainPage.Navigation.PushModalAsync(mainPage);
         }
         else
         {
-            // Display an error message
             messageLabel.Text = "Invalid username or password.";
             messageLabel.IsVisible = true;
         }

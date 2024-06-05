@@ -4,7 +4,6 @@
              x:Class="MyaFinance.MVVM.Views.MyExpense"
              Title="MyExpense">
     <StackLayout>
-        <!-- Go Back Button -->
 
         <Button Text="Geri Dön"
                 Clicked="GoBack"
@@ -33,8 +32,6 @@
                 Padding="10"/>
         </Frame>
 
-
-        <!-- Add New Income Button -->
         <Button Text="Yeni Gider Ekle"
                 Clicked="AddNewExpenseButton_Clicked"
                 Margin="10,0,10,5"
@@ -55,13 +52,10 @@
                 Padding="10"
                 IsVisible="False"/>
 
-
-        <!-- ListView to display incomes -->
         <ListView x:Name="expenseListView"
                   HasUnevenRows="true"
                   SelectionMode="None">
 
-            <!-- Set HasUnevenRows to true -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -70,11 +64,11 @@
                             HorizontalOptions="FillAndExpand"
                             HeightRequest="2"
                             BackgroundColor="Black"/>
-                            <!-- Display title and amount -->
+                            
                             <Label Text="{Binding Title}" BackgroundColor="Aquamarine"  FontSize="Title" FontAttributes="Bold" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
                             <Label Text="{Binding Amount, StringFormat='Miktar : {0} ₺'}" BackgroundColor="Bisque"  FontSize="Subtitle" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
                             <Label Text="{Binding Date, StringFormat='{0:dd MMM yyyy}'}" BackgroundColor="DarkSalmon"  FontSize="Subtitle" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
-                            <!-- Buttons for actions -->
+                            
                             <Button Text="Düzenle" FontAttributes="Bold" ImageSource="edit.png" Clicked="EditButton_Clicked" CommandParameter="{Binding Id}"/>
                             <Button Text="Sil" FontAttributes="Bold" ImageSource="delete.png" BackgroundColor="Red" Clicked="DeleteButton_Clicked" CommandParameter="{Binding Id}" />
                         </StackLayout>

@@ -47,12 +47,10 @@ public partial class MyExpense : ContentPage
         var button = (Button)sender;
         var expenseId = (int)button.CommandParameter;
 
-        // Fetch the income details using the incomeId
         var expense = _expenseRepository.Get(expenseId);
 
         if (expense != null)
         {
-            // Navigate to the EditIncome page with the income details
             Navigation.PushModalAsync(new EditExpense(expense, RefreshIncomeList));
         }
         else

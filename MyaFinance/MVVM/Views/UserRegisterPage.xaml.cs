@@ -13,19 +13,16 @@ public partial class UserRegisterPage : ContentPage
 
     private void Register_Clicked(object sender, EventArgs e)
     {
-        // Get user input from the Entry fields
         string name = NameEntry.Text;
         string email = EmailEntry.Text;
         string password = PasswordEntry.Text;
 
-        // Check if any of the fields are empty
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
         {
             DisplayAlert("Error", "Please fill in all fields", "OK");
             return;
         }
 
-        // Create a new User object
         User newUser = new User
         {
             Name = name,
@@ -33,10 +30,8 @@ public partial class UserRegisterPage : ContentPage
             Password = password
         };
 
-        // Create an instance of the UserRepository
         UserRepository userRepository = new UserRepository();
 
-        // Add the new user
         int result = userRepository.Add(newUser);
         if (result == 1)
         {
@@ -48,10 +43,8 @@ public partial class UserRegisterPage : ContentPage
         {
             DisplayAlert("Register Failed", "User couldn't be registered!", "OK");
         }
-        // Display success message
 
 
-        // Clear the entry fields
         NameEntry.Text = "";
         EmailEntry.Text = "";
         PasswordEntry.Text = "";

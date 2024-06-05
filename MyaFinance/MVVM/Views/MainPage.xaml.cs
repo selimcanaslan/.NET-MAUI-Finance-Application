@@ -20,9 +20,9 @@ namespace MyaFinance
 
         public MainPage(User user)
         {
+            InitializeComponent();
             _expenseRepository = new ExpenseRepository();
             _incomeRepository = new IncomeRepository();
-            InitializeComponent();
             currentUser = user;
             helloLabel.Text = $"Merhaba, {user.Name}";
             LoadCurrencyData();
@@ -96,8 +96,8 @@ namespace MyaFinance
                     if (expenseListItemCount == 1)
                     {
                         sonIslemLabel.Text = $"{expense.Title} - {expense.Amount}TL - {expense.Date.ToString("dd MMM HH:mm")}";
-                        sonIslemLabel.BackgroundColor = Colors.Green;
-                        sonIslemFrame.BackgroundColor = Colors.Green;
+                        sonIslemLabel.BackgroundColor = Colors.Red;
+                        sonIslemFrame.BackgroundColor = Colors.Red;
 
                         sondanBirinciIslemFrame.IsVisible = false;
                         sondanBirinciIslemLabel.IsVisible = false;
@@ -107,10 +107,14 @@ namespace MyaFinance
                         if (i == 0)
                         {
                             sonIslemLabel.Text = $"{expense.Title} - {expense.Amount}TL - {expense.Date.ToString("dd MMM HH:mm")}";
+                            sonIslemLabel.BackgroundColor = Colors.Red;
+                            sonIslemFrame.BackgroundColor = Colors.Red;
                         }
                         if (i == 1)
                         {
                             sondanBirinciIslemLabel.Text = $"{expense.Title} - {expense.Amount}TL - {expense.Date.ToString("dd MMM HH:mm")}";
+                            sondanBirinciIslemLabel.BackgroundColor = Colors.Red;
+                            sondanBirinciIslemFrame.BackgroundColor = Colors.Red;
                         }
                     }
                     i++;
@@ -175,7 +179,6 @@ namespace MyaFinance
                 return "No currency rates available.";
             }
 
-            // Sadece Euro bazında döviz kurlarını al
             double euroRate = currencyRates["try"];
             double usdRate = currencyRates["usd"];
             double usdToTry = euroRate - ((euroRate * usdRate) - euroRate);

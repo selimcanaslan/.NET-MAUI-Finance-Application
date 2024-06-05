@@ -4,37 +4,38 @@
              x:Class="MyaFinance.MVVM.Views.UserRegisterPage"
              Title="UserRegisterPage">
     <StackLayout Padding="30" Spacing="10" VerticalOptions="Center">
+        
         <Image
                 Source="main.png"
                 Aspect="AspectFit" />
-        <!-- Name Entry -->
         <Label Text="Ad" Margin="3,0,0,0"/>
+        
         <Entry Placeholder="Ad"
                x:Name="NameEntry"
                Margin="0,0,0,0"/>
-        <!-- Email Entry -->
         <Label Text="Email" Margin="3,0,0,0"/>
+        
         <Entry Placeholder="Email"
                x:Name="EmailEntry"
                Keyboard="Email"
                Margin="0,0,0,0"/>
 
-        <!-- Password Entry -->
         <Label Text="Şifre" Margin="3,0,0,0"/>
+        
         <Entry Placeholder="Şifre"
                x:Name="PasswordEntry"
                IsPassword="True"
                Margin="0,0,0,0"/>
 
-        <!-- Register Button -->
         <Button Text="KAYIT OL"
                 Clicked="Register_Clicked"
                 Margin="0,20,0,0"
                 HorizontalOptions="FillAndExpand"/>
-        <!-- Go Back Login Button -->
+        
         <Button Text="İPTAL"
         Clicked="GoBackLogin"
         Margin="0,20,0,0"
         HorizontalOptions="FillAndExpand"/>
+        
     </StackLayout>
 </ContentPage>

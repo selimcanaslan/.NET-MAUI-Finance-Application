@@ -18,7 +18,6 @@ public partial class EditExpense : ContentPage
         _expenseRepository = new ExpenseRepository();
         _refreshCallback = refreshCallback;
 
-        // Initialize the fields with the current income data
         titleEntry.Text = _expense.Title;
         descriptionEntry.Text = _expense.Description;
         amountEntry.Text = _expense.Amount.ToString();
